@@ -3,7 +3,6 @@
 [![Next.js](https://img.shields.io/badge/Next.js-16.2.6-black?style=flat-square&logo=next.js)](https://nextjs.org/)
 [![Firebase](https://img.shields.io/badge/Firebase-Cloud_Firestore-FFCA28?style=flat-square&logo=firebase&logoColor=black)](https://firebase.google.com/)
 [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-v3-06B6D4?style=flat-square&logo=tailwindcss)](https://tailwindcss.com/)
-[![License](https://img.shields.io/badge/License-MIT-lime?style=flat-square)](LICENSE)
 
 **Tap2Know** adalah platform pembuat portofolio dan kartu nama digital interaktif berskala produksi yang terintegrasi langsung dengan teknologi fisik **NFC (Near Field Communication)**. Mengusung estetika desain *Modern Brutalist*, platform ini memungkinkan pengguna mengaktifkan token fisik mereka secara mandiri, mengonfigurasi tata letak secara *real-time*, dan langsung memublikasikan halaman portofolio premium mereka ke internet dalam hitungan milidetik.
 
