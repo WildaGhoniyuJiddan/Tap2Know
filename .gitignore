@@ -1,0 +1,20 @@
+# Menyembunyikan file rahasia API Key
+.env
+.env.local
+.env.production
+.env.development
+
+# Menyembunyikan folder sampah/bawaan yang super berat
+node_modules/
+.next/
+dist/
+
+# Menyembunyikan file log error
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Menyembunyikan file rahasia berformat json (seperti service account)
+*.json
+!package.json
+!tsconfig.json
