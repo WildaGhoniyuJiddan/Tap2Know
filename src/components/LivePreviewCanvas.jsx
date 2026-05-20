@@ -5,7 +5,7 @@ import PortfolioCardColumn1 from './PortfolioCardColumn1.jsx';
 import PortfolioCardManager from './PortfolioCardManager.jsx';
 
 const LivePreviewCanvas = () => {
-  const { bgColor, displayFont, bodyFont, header, description, blur, transparency, mediaUrls } = useEditor();
+  const { bgColor, displayFontFamily, bodyFontFamily, header, description, blur, transparency, mediaUrls } = useEditor();
 
   return (
     <div 
@@ -27,13 +27,13 @@ const LivePreviewCanvas = () => {
             )}
             <h1 
               className="text-[28px] sm:text-3xl md:text-4xl lg:text-[44px] leading-[1.15] text-white font-normal tracking-tight mb-2 transition-all duration-300"
-              style={{ fontFamily: displayFont }}
+              style={{ fontFamily: displayFontFamily }}
             >
               {header}
             </h1>
             <p 
               className="text-sm md:text-[15px] leading-[1.6] text-white/60 transition-all duration-300"
-              style={{ fontFamily: bodyFont }}
+              style={{ fontFamily: bodyFontFamily }}
             >
               {description}
             </p>
@@ -41,7 +41,7 @@ const LivePreviewCanvas = () => {
           
           <button 
             className="shrink-0 liquid-glass rounded-full px-6 py-3 text-sm font-medium text-white transition-all hover:bg-white/10 active:scale-[0.98]"
-            style={{ fontFamily: bodyFont }}
+            style={{ fontFamily: bodyFontFamily }}
           >
             Let's Team Up Today
           </button>

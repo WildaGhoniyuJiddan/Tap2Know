@@ -182,16 +182,22 @@ const EditorPanel = () => {
             <Label>Display Font</Label>
             <select value={displayFont} onChange={(e) => setDisplayFont(e.target.value)} className="flex h-10 w-full items-center justify-between rounded-md border border-white/20 bg-black/40 px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-white">
               <option value="Anton" className="bg-zinc-900">Anton</option>
-              <option value="'Playfair Display'" className="bg-zinc-900">Playfair Display</option>
-              <option value="Poppins" className="bg-zinc-900">Poppins</option>
+              <option value="Bebas Neue" className="bg-zinc-900">Bebas Neue</option>
+              <option value="Space Grotesk" className="bg-zinc-900">Space Grotesk</option>
+              <option value="Syne" className="bg-zinc-900">Syne</option>
+              <option value="Oswald" className="bg-zinc-900">Oswald</option>
+              <option value="Playfair Display" className="bg-zinc-900">Playfair Display</option>
             </select>
           </div>
           <div className="space-y-2">
             <Label>Body Font</Label>
             <select value={bodyFont} onChange={(e) => setBodyFont(e.target.value)} className="flex h-10 w-full items-center justify-between rounded-md border border-white/20 bg-black/40 px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-white">
               <option value="Inter" className="bg-zinc-900">Inter</option>
-              <option value="Roboto" className="bg-zinc-900">Roboto</option>
-              <option value="Lato" className="bg-zinc-900">Lato</option>
+              <option value="Poppins" className="bg-zinc-900">Poppins</option>
+              <option value="Plus Jakarta Sans" className="bg-zinc-900">Plus Jakarta Sans</option>
+              <option value="DM Sans" className="bg-zinc-900">DM Sans</option>
+              <option value="Space Mono" className="bg-zinc-900">Space Mono</option>
+              <option value="Lexend" className="bg-zinc-900">Lexend</option>
             </select>
           </div>
         </div>

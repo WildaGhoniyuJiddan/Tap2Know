@@ -2,14 +2,14 @@ import React from 'react';
 import { useEditor } from '../context/EditorContext.jsx';
 
 const PortfolioCardText = ({ card }) => {
-  const { bodyFont, displayFont, cardColor, textColor } = useEditor();
+  const { bodyFontFamily, displayFontFamily, cardColor, textColor } = useEditor();
   const { heading, description, mediaUrl } = card.content;
 
   return (
-    <div className="w-full h-full relative overflow-hidden rounded-2xl p-6 md:p-8 flex flex-col justify-between noise-overlay" style={{ backgroundColor: cardColor, fontFamily: bodyFont }}>
+    <div className="w-full h-full relative overflow-hidden rounded-2xl p-6 md:p-8 flex flex-col justify-between noise-overlay" style={{ backgroundColor: cardColor, fontFamily: bodyFontFamily }}>
       <div className="relative z-10">
         {heading && (
-          <h3 className="text-2xl md:text-3xl font-medium mb-3 leading-tight" style={{ color: textColor, fontFamily: displayFont }}>
+          <h3 className="text-2xl md:text-3xl font-medium mb-3 leading-tight" style={{ color: textColor, fontFamily: displayFontFamily }}>
             {heading}
           </h3>
         )}

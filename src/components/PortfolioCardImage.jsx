@@ -2,13 +2,13 @@ import React from 'react';
 import { useEditor } from '../context/EditorContext.jsx';
 
 const PortfolioCardImage = ({ card }) => {
-  const { bodyFont, textColor } = useEditor();
+  const { bodyFontFamily, textColor } = useEditor();
   const { mediaUrl, overlayText } = card.content;
 
   const isVideo = mediaUrl?.match(/\.(mp4|webm|ogg)$/i);
 
   return (
-    <div className="w-full h-full relative overflow-hidden rounded-2xl bg-black group" style={{ fontFamily: bodyFont }}>
+    <div className="w-full h-full relative overflow-hidden rounded-2xl bg-black group" style={{ fontFamily: bodyFontFamily }}>
       {mediaUrl && (
         isVideo ? (
           <video src={mediaUrl} autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover opacity-70 transition-transform duration-700 group-hover:scale-105" />

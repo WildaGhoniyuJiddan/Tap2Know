@@ -49,10 +49,10 @@ const getPlatformStyle = (url) => {
 };
 
 const PortfolioCardSocial = ({ card }) => {
-  const { bodyFont, mediaUrls } = useEditor();
-  const { url, subLabel } = card.content;
+  const { bodyFontFamily, mediaUrls } = useEditor();
+  const { url, subLabel, customLabel } = card.content;
   
-  const handle = extractHandle(url);
+  const handle = customLabel || extractHandle(url);
   const style = getPlatformStyle(url);
   
   const profilePic = mediaUrls?.profilePicture;
@@ -65,7 +65,7 @@ const PortfolioCardSocial = ({ card }) => {
       className="block w-full h-full relative overflow-hidden rounded-2xl group transition-all duration-300 hover:scale-[1.02] active:scale-95" 
       style={{ 
         background: style.bg, 
-        fontFamily: bodyFont,
+        fontFamily: bodyFontFamily,
         border: style.border || 'none',
         boxShadow: style.shadow || 'none'
       }}
@@ -90,15 +90,15 @@ const PortfolioCardSocial = ({ card }) => {
           </div>
         </div>
 
-        <div className="mt-6">
+        <div className="mt-6 w-full min-w-0">
           <h3 className="text-lg md:text-xl font-bold tracking-tight mb-1 truncate" style={{ color: style.text }}>
             {handle}
           </h3>
-          <div className="flex items-center justify-between group-hover:translate-x-1 transition-transform">
+          <div className="flex items-center justify-between group-hover:translate-x-1 transition-transform min-w-0">
             <p className="text-xs md:text-sm font-medium truncate pr-4" style={{ color: style.accent }}>
               {subLabel || 'Visit Link'}
             </p>
-            <ArrowUpRight className="w-4 h-4 transition-all" style={{ color: style.accent }} />
+            <ArrowUpRight className="w-4 h-4 transition-all shrink-0" style={{ color: style.accent }} />
           </div>
         </div>
       </div>

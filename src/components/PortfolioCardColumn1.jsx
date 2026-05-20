@@ -4,7 +4,7 @@ import { useEditor } from '../context/EditorContext.jsx';
 import MediaUploadModal from './MediaUploadModal.jsx';
 
 const PortfolioCardColumn1 = () => {
-  const { bodyFont, textColor, careerData, careerGridLayout, mediaUrls, updateMediaUrl, isPublic } = useEditor();
+  const { bodyFontFamily, textColor, careerData, careerGridLayout, mediaUrls, updateMediaUrl, isPublic } = useEditor();
   const [modalOpen, setModalOpen] = useState(false);
 
   const getGridClass = () => {
@@ -19,7 +19,7 @@ const PortfolioCardColumn1 = () => {
 
   return (
     <>
-      <div className="group rounded-2xl bg-[#0a0a0a] relative overflow-hidden h-full min-h-[400px] flex flex-col justify-end p-5 md:p-6 lg:p-8 transition-colors duration-300" style={{ fontFamily: bodyFont }}>
+      <div className="group rounded-2xl bg-[#0a0a0a] relative overflow-hidden h-full min-h-[400px] flex flex-col justify-end p-5 md:p-6 lg:p-8 transition-colors duration-300" style={{ fontFamily: bodyFontFamily }}>
         
         {!isPublic && (
           <button 

@@ -10,13 +10,13 @@ const extendedRow1 = [...row1Icons, ...row1Icons];
 const extendedRow2 = [...row2Icons, ...row2Icons];
 
 const PortfolioCardColumn3 = () => {
-  const { cardColor, textColor, bodyFont, email, phone, mediaUrls, updateMediaUrl } = useEditor();
+  const { cardColor, textColor, bodyFontFamily, email, phone, mediaUrls, updateMediaUrl } = useEditor();
   const [activeModal, setActiveModal] = useState(null); // 'dailySoftware' | 'reachMe' | null
 
   return (
     <div className="flex flex-col gap-4 md:gap-5 h-full">
       {/* Daily Software Card */}
-      <div className="group rounded-2xl bg-[#0a0a0a] relative overflow-hidden flex-1 min-h-[300px] flex flex-col justify-center py-8 transition-colors duration-300" style={{ fontFamily: bodyFont }}>
+      <div className="group rounded-2xl bg-[#0a0a0a] relative overflow-hidden flex-1 min-h-[300px] flex flex-col justify-center py-8 transition-colors duration-300" style={{ fontFamily: bodyFontFamily }}>
         
         <button 
           onClick={() => setActiveModal('dailySoftware')}
@@ -86,7 +86,7 @@ const PortfolioCardColumn3 = () => {
       {/* Reach Me Card */}
       <div 
         className="group rounded-2xl p-5 md:p-6 relative overflow-hidden noise-overlay shrink-0 flex items-center justify-between transition-colors duration-300"
-        style={{ backgroundColor: cardColor, fontFamily: bodyFont }}
+        style={{ backgroundColor: cardColor, fontFamily: bodyFontFamily }}
       >
         <button 
           onClick={() => setActiveModal('reachMe')}

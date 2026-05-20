@@ -4,7 +4,7 @@ import { useEditor } from '@/context/EditorContext.jsx';
 import MediaUploadModal from './MediaUploadModal.jsx';
 
 const PortfolioCardColumn2 = () => {
-  const { cardColor, textColor, bodyFont, testimonialQuote, testimonialAttribution, stats, displayFont, mediaUrls, updateMediaUrl } = useEditor();
+  const { cardColor, textColor, bodyFontFamily, testimonialQuote, testimonialAttribution, stats, displayFontFamily, mediaUrls, updateMediaUrl } = useEditor();
   const [activeModal, setActiveModal] = useState(null); // 'clientVoice' | 'tenM' | null
 
   return (
@@ -12,7 +12,7 @@ const PortfolioCardColumn2 = () => {
       {/* Client Voice Card */}
       <div 
         className="group rounded-2xl p-5 md:p-6 relative overflow-hidden noise-overlay shrink-0 transition-colors duration-300"
-        style={{ backgroundColor: cardColor, fontFamily: bodyFont }}
+        style={{ backgroundColor: cardColor, fontFamily: bodyFontFamily }}
       >
         <button 
           onClick={() => setActiveModal('clientVoice')}
@@ -22,7 +22,7 @@ const PortfolioCardColumn2 = () => {
         </button>
 
         {mediaUrls.clientVoiceImage && (
-          <div className="absolute inset-0 z-0 opacity-20 Mix-blend-overlay">
+          <div className="absolute inset-0 z-0 opacity-20 mix-blend-overlay">
             <img src={mediaUrls.clientVoiceImage} alt="" className="w-full h-full object-cover" />
           </div>
         )}
@@ -44,7 +44,7 @@ const PortfolioCardColumn2 = () => {
       </div>
 
       {/* Statistics Card */}
-      <div className="group rounded-2xl bg-[#0a0a0a] relative overflow-hidden flex-1 min-h-[250px] flex flex-col justify-end p-5 md:p-6 transition-colors duration-300" style={{ fontFamily: bodyFont }}>
+      <div className="group rounded-2xl bg-[#0a0a0a] relative overflow-hidden flex-1 min-h-[250px] flex flex-col justify-end p-5 md:p-6 transition-colors duration-300" style={{ fontFamily: bodyFontFamily }}>
         
         <button 
           onClick={() => setActiveModal('tenM')}
@@ -68,7 +68,7 @@ const PortfolioCardColumn2 = () => {
         <div className="relative z-10 text-center w-full">
           <div 
             className="text-5xl md:text-7xl font-light tracking-tight drop-shadow-lg mb-1" 
-            style={{ color: textColor, fontFamily: displayFont }}
+            style={{ color: textColor, fontFamily: displayFontFamily }}
           >
             {stats}
           </div>

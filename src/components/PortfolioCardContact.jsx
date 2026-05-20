@@ -3,7 +3,7 @@ import { useEditor } from '../context/EditorContext.jsx';
 import { ArrowUpRight, Mail, Phone, Github, Twitter, Linkedin } from 'lucide-react';
 
 const PortfolioCardContact = ({ card }) => {
-  const { bodyFont, cardColor, textColor } = useEditor();
+  const { bodyFontFamily, cardColor, textColor } = useEditor();
   const { email, phone, socialLinks } = card.content;
 
   const getIcon = (platform) => {
@@ -16,27 +16,27 @@ const PortfolioCardContact = ({ card }) => {
   };
 
   return (
-    <div className="w-full h-full relative overflow-hidden rounded-2xl p-6 md:p-8 flex flex-col justify-between noise-overlay" style={{ backgroundColor: cardColor, fontFamily: bodyFont }}>
-      <div className="relative z-10">
+    <div className="w-full h-full relative overflow-hidden rounded-2xl p-6 md:p-8 flex flex-col justify-between noise-overlay" style={{ backgroundColor: cardColor, fontFamily: bodyFontFamily }}>
+      <div className="relative z-10 w-full min-w-0">
         <div className="uppercase tracking-[0.22em] text-[11px] font-medium opacity-70 mb-6" style={{ color: textColor }}>
           REACH ME
         </div>
         
-        <div className="space-y-4">
+        <div className="space-y-4 w-full min-w-0">
           {email && (
-            <a href={`mailto:${email}`} className="flex items-center gap-3 group w-fit">
-              <div className="p-2 rounded-full bg-white/10 group-hover:bg-white/20 transition-colors">
+            <a href={`mailto:${email}`} className="flex items-center gap-3 group w-fit max-w-full min-w-0">
+              <div className="p-2 rounded-full bg-white/10 group-hover:bg-white/20 transition-colors shrink-0">
                 <Mail className="w-4 h-4" style={{ color: textColor }} />
               </div>
-              <span className="text-sm md:text-base font-medium" style={{ color: textColor }}>{email}</span>
+              <span className="text-sm md:text-base font-medium truncate" style={{ color: textColor }}>{email}</span>
             </a>
           )}
           {phone && (
-            <a href={`tel:${phone}`} className="flex items-center gap-3 group w-fit">
-              <div className="p-2 rounded-full bg-white/10 group-hover:bg-white/20 transition-colors">
+            <a href={`tel:${phone}`} className="flex items-center gap-3 group w-fit max-w-full min-w-0">
+              <div className="p-2 rounded-full bg-white/10 group-hover:bg-white/20 transition-colors shrink-0">
                 <Phone className="w-4 h-4" style={{ color: textColor }} />
               </div>
-              <span className="text-sm md:text-base font-medium opacity-80" style={{ color: textColor }}>{phone}</span>
+              <span className="text-sm md:text-base font-medium opacity-80 truncate" style={{ color: textColor }}>{phone}</span>
             </a>
           )}
         </div>

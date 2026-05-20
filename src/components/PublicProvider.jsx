@@ -1,11 +1,19 @@
 "use client";
 import React from 'react';
-import { EditorContext } from '../context/EditorContext';
+import { EditorContext, fontStyleMap } from '../context/EditorContext';
 
 const PublicProvider = ({ children, data }) => {
+  const displayFont = data.typography?.displayFont || 'Anton';
+  const bodyFont = data.typography?.bodyFont || 'Inter';
+  
+  const displayFontFamily = fontStyleMap[displayFont] || displayFont;
+  const bodyFontFamily = fontStyleMap[bodyFont] || bodyFont;
+
   const value = {
-    displayFont: data.typography?.displayFont || 'Anton',
-    bodyFont: data.typography?.bodyFont || 'Inter',
+    displayFont,
+    bodyFont,
+    displayFontFamily,
+    bodyFontFamily,
     bgColor: data.themeColors?.bgColor || '#0a0a0a',
     cardColor: data.themeColors?.cardColor || '#324444',
     textColor: data.themeColors?.textColor || '#ffffff',

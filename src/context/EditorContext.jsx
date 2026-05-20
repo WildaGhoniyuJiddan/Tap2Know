@@ -5,6 +5,25 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { doc, onSnapshot, updateDoc, setDoc } from 'firebase/firestore';
 import { toast } from 'sonner';
 
+export const fontStyleMap = {
+  // Display Fonts
+  'Anton': 'var(--font-anton), sans-serif',
+  'Bebas Neue': 'var(--font-bebas-neue), sans-serif',
+  'Space Grotesk': 'var(--font-space-grotesk), sans-serif',
+  'Syne': 'var(--font-syne), sans-serif',
+  'Oswald': 'var(--font-oswald), sans-serif',
+  'Playfair Display': 'var(--font-playfair-display), serif',
+  "'Playfair Display'": 'var(--font-playfair-display), serif',
+  
+  // Body Fonts
+  'Inter': 'var(--font-inter), sans-serif',
+  'Plus Jakarta Sans': 'var(--font-plus-jakarta-sans), sans-serif',
+  'DM Sans': 'var(--font-dm-sans), sans-serif',
+  'Space Mono': 'var(--font-space-mono), monospace',
+  'Lexend': 'var(--font-lexend), sans-serif',
+  'Poppins': 'var(--font-poppins), sans-serif',
+};
+
 export const EditorContext = createContext(null);
 
 export const EditorProvider = ({ children }) => {
@@ -238,9 +257,14 @@ export const EditorProvider = ({ children }) => {
     }
   };
 
+  const displayFontFamily = fontStyleMap[displayFont] || displayFont;
+  const bodyFontFamily = fontStyleMap[bodyFont] || bodyFont;
+
   const value = {
     displayFont, setDisplayFont,
     bodyFont, setBodyFont,
+    displayFontFamily,
+    bodyFontFamily,
     bgColor, setBgColor,
     cardColor, setCardColor,
     textColor, setTextColor,

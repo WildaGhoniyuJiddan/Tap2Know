@@ -88,7 +88,7 @@ const PortfolioCardManager = ({ children }) => {
             onDragEnter={(e) => handleDragEnter(e, index)}
             onDragEnd={handleDragEnd}
             className={`
-              group relative h-full transition-all duration-300
+              group relative h-full transition-all duration-300 min-w-0 overflow-hidden
               col-span-1 ${getColSpanClass(card.width)} 
               ${card.height === 'extra-tall' ? 'row-span-3' : card.height === 'tall' ? 'row-span-2' : 'row-span-1'}
             `}

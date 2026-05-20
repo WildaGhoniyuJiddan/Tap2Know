@@ -16,12 +16,12 @@ const iconMap = {
 };
 
 const PortfolioCardStats = ({ card }) => {
-  const { bodyFont, displayFont, textColor } = useEditor();
+  const { bodyFontFamily, displayFontFamily, textColor } = useEditor();
   const { number, label, icon } = card.content;
   const IconComponent = icon && iconMap[icon] ? iconMap[icon] : null;
 
   return (
-    <div className="w-full h-full relative overflow-hidden rounded-2xl bg-black p-6 md:p-8 flex flex-col justify-center items-center text-center" style={{ fontFamily: bodyFont }}>
+    <div className="w-full h-full relative overflow-hidden rounded-2xl bg-black p-6 md:p-8 flex flex-col justify-center items-center text-center" style={{ fontFamily: bodyFontFamily }}>
       <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
       
       <div className="relative z-10">
@@ -30,7 +30,7 @@ const PortfolioCardStats = ({ card }) => {
             <IconComponent className="w-6 h-6" style={{ color: textColor }} />
           </div>
         )}
-        <div className="text-5xl md:text-7xl font-light tracking-tight drop-shadow-lg mb-2" style={{ color: textColor, fontFamily: displayFont }}>
+        <div className="text-5xl md:text-7xl font-light tracking-tight drop-shadow-lg mb-2" style={{ color: textColor, fontFamily: displayFontFamily }}>
           {number}
         </div>
         <div className="text-xs md:text-sm uppercase tracking-widest opacity-60" style={{ color: textColor }}>

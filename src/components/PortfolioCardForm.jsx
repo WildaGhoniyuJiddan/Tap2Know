@@ -188,6 +188,10 @@ const PortfolioCardForm = ({ isOpen, onClose, onSave, initialData }) => {
                     <Input value={formData.content.url || ''} onChange={(e) => handleContentChange('url', e.target.value)} placeholder="https://instagram.com/username" className="bg-zinc-900 border-zinc-800" />
                   </div>
                   <div className="space-y-2">
+                    <Label>Display Label (Optional)</Label>
+                    <Input value={formData.content.customLabel || ''} onChange={(e) => handleContentChange('customLabel', e.target.value)} placeholder="e.g. @myusername (falls back to URL handle if empty)" className="bg-zinc-900 border-zinc-800" />
+                  </div>
+                  <div className="space-y-2">
                     <Label>Sub Label</Label>
                     <Input value={formData.content.subLabel || ''} onChange={(e) => handleContentChange('subLabel', e.target.value)} placeholder="e.g. Follow me" className="bg-zinc-900 border-zinc-800" />
                   </div>
