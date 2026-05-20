@@ -45,9 +45,9 @@ const CareerTimelineEditor = () => {
     <div className="space-y-6">
       {/* Add New Career Button */}
       <Button onClick={handleAddNew} variant="outline" className="w-full border-dashed border-white/20 bg-transparent text-white/70 hover:text-white hover:bg-white/5 h-10 text-xs">
-        <Plus size={14} className="mr-2" /> Add New Career
+        <Plus size={14} className="mr-2" /> Tambah Karier Baru
       </Button>
-
+ 
       {/* Career Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" onDragOver={(e) => e.preventDefault()}>
         {careerData.map((item, index) => (
@@ -73,7 +73,7 @@ const CareerTimelineEditor = () => {
             
             <div className="space-y-3">
               <div className="space-y-1">
-                <Label className="text-[10px] text-white/60">Position</Label>
+                <Label className="text-[10px] text-white/60">Jabatan / Posisi</Label>
                 <Input 
                   value={item.role} 
                   onChange={(e) => updateCareer(item.id, { role: e.target.value })} 
@@ -81,7 +81,7 @@ const CareerTimelineEditor = () => {
                 />
               </div>
               <div className="space-y-1">
-                <Label className="text-[10px] text-white/60">Company</Label>
+                <Label className="text-[10px] text-white/60">Perusahaan</Label>
                 <Input 
                   value={item.company} 
                   onChange={(e) => updateCareer(item.id, { company: e.target.value })} 
@@ -89,7 +89,7 @@ const CareerTimelineEditor = () => {
                 />
               </div>
               <div className="space-y-1">
-                <Label className="text-[10px] text-white/60">Year</Label>
+                <Label className="text-[10px] text-white/60">Tahun</Label>
                 <Input 
                   value={item.year} 
                   onChange={(e) => updateCareer(item.id, { year: e.target.value })} 
@@ -105,7 +105,7 @@ const CareerTimelineEditor = () => {
                 />
               </div>
               <div className="space-y-1">
-                <Label className="text-[10px] text-white/60">Link / URL (Optional)</Label>
+                <Label className="text-[10px] text-white/60">Link / URL (Opsional)</Label>
                 <Input 
                   value={item.url || ''} 
                   onChange={(e) => updateCareer(item.id, { url: e.target.value })} 

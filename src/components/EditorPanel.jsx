@@ -100,7 +100,7 @@ const EditorPanel = () => {
           <div className="flex items-center gap-2 text-sm text-white/50">
             {username ? (
               <>
-                <span>Logged in as <span className="text-white/80 font-medium">@{username}</span></span>
+                <span>Masuk sebagai <span className="text-white/80 font-medium">@{username}</span></span>
                 <a
                   href={publicUrl}
                   target="_blank"
@@ -112,7 +112,7 @@ const EditorPanel = () => {
                 </a>
               </>
             ) : (
-              'Customize your TAP2KNOW profile'
+              'Sesuaikan profil TAP2KNOW Anda'
             )}
           </div>
         </div>
@@ -122,7 +122,7 @@ const EditorPanel = () => {
             disabled={isPublishing}
             className="bg-[#ccff00] hover:bg-[#b3e600] text-black font-bold text-xs uppercase tracking-wider px-6 h-9 rounded-sm shadow-[4px_4px_0px_#ffffff] active:translate-y-1 active:translate-x-1 active:shadow-[0px_0px_0px_#ffffff] transition-all"
           >
-            {isPublishing ? 'PUBLISHING...' : 'PUBLISH'}
+            {isPublishing ? 'MEMPUBLIKASIKAN...' : 'PUBLIKASIKAN'}
           </Button>
           <button
             onClick={async () => { await signOut(auth); router.replace('/login'); }}
@@ -146,8 +146,8 @@ const EditorPanel = () => {
               <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[#ccff00]/10 border-2 border-[#ccff00]/30 flex items-center justify-center">
                 <Check size={28} className="text-[#ccff00]" />
               </div>
-              <h3 className="text-2xl font-black uppercase tracking-tight font-['Anton']">Published!</h3>
-              <p className="text-sm text-zinc-400 mt-1">Your profile is now live at:</p>
+              <h3 className="text-2xl font-black uppercase tracking-tight font-['Anton']">Dipublikasikan!</h3>
+              <p className="text-sm text-zinc-400 mt-1">Profil Anda sekarang aktif di:</p>
             </div>
 
             <div className="flex items-center gap-2 p-3 bg-zinc-900 rounded-lg border border-zinc-800 mb-6">
@@ -160,7 +160,7 @@ const EditorPanel = () => {
                 onClick={handleCopyLink}
                 className="flex-1 flex items-center justify-center gap-2 bg-zinc-800 hover:bg-zinc-700 text-white font-bold text-xs uppercase tracking-wider py-3 rounded-lg transition-all border border-zinc-700"
               >
-                {copied ? <><Check size={14} /> Copied!</> : <><Copy size={14} /> Copy Link</>}
+                {copied ? <><Check size={14} /> Salin Link Sukses!</> : <><Copy size={14} /> Salin Link</>}
               </button>
               <a
                 href={publicUrl}
@@ -168,7 +168,7 @@ const EditorPanel = () => {
                 rel="noreferrer"
                 className="flex-1 flex items-center justify-center gap-2 bg-[#ccff00] hover:bg-[#b3e600] text-black font-bold text-xs uppercase tracking-wider py-3 rounded-lg shadow-[3px_3px_0px_#ffffff] active:translate-y-0.5 active:translate-x-0.5 active:shadow-[0px_0px_0px_#ffffff] transition-all"
               >
-                <ExternalLink size={14} /> Open Live
+                <ExternalLink size={14} /> Buka Situs Live
               </a>
             </div>
           </div>
@@ -176,10 +176,10 @@ const EditorPanel = () => {
       )}
 
       <section id="settings" className="space-y-4">
-        <h3 className="text-xs font-semibold uppercase tracking-wider text-white/70 border-b border-white/10 pb-2">1. Typography</h3>
+        <h3 className="text-xs font-semibold uppercase tracking-wider text-white/70 border-b border-white/10 pb-2">1. Tipografi</h3>
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-2">
-            <Label>Display Font</Label>
+            <Label>Font Judul</Label>
             <select value={displayFont} onChange={(e) => setDisplayFont(e.target.value)} className="flex h-10 w-full items-center justify-between rounded-md border border-white/20 bg-black/40 px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-white">
               <option value="Anton" className="bg-zinc-900">Anton</option>
               <option value="Bebas Neue" className="bg-zinc-900">Bebas Neue</option>
@@ -190,7 +190,7 @@ const EditorPanel = () => {
             </select>
           </div>
           <div className="space-y-2">
-            <Label>Body Font</Label>
+            <Label>Font Isi</Label>
             <select value={bodyFont} onChange={(e) => setBodyFont(e.target.value)} className="flex h-10 w-full items-center justify-between rounded-md border border-white/20 bg-black/40 px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-white">
               <option value="Inter" className="bg-zinc-900">Inter</option>
               <option value="Poppins" className="bg-zinc-900">Poppins</option>
@@ -204,57 +204,57 @@ const EditorPanel = () => {
       </section>
 
       <section id="layout" className="space-y-4">
-        <h3 className="text-xs font-semibold uppercase tracking-wider text-white/70 border-b border-white/10 pb-2">2. Color & Layout</h3>
+        <h3 className="text-xs font-semibold uppercase tracking-wider text-white/70 border-b border-white/10 pb-2">2. Warna & Tata Letak</h3>
         <div className="flex flex-wrap gap-6 mb-6">
           <div className="flex items-center gap-3">
-            <Label className="m-0">Background</Label>
+            <Label className="m-0">Latar Belakang</Label>
             <input type="color" value={bgColor} onChange={(e) => setBgColor(e.target.value)} className="h-8 w-8 rounded cursor-pointer bg-transparent border-0 p-0" />
           </div>
           <div className="flex items-center gap-3">
-            <Label className="m-0">Card Base</Label>
+            <Label className="m-0">Dasar Kartu</Label>
             <input type="color" value={cardColor} onChange={(e) => setCardColor(e.target.value)} className="h-8 w-8 rounded cursor-pointer bg-transparent border-0 p-0" />
           </div>
           <div className="flex items-center gap-3">
-            <Label className="m-0">Text Accent</Label>
+            <Label className="m-0">Aksen Teks</Label>
             <input type="color" value={textColor} onChange={(e) => setTextColor(e.target.value)} className="h-8 w-8 rounded cursor-pointer bg-transparent border-0 p-0" />
           </div>
         </div>
 
         <div className="space-y-2">
-          <Label>Career Grid Layout</Label>
+          <Label>Tata Letak Grid Karier</Label>
           <Select value={careerGridLayout} onValueChange={setCareerGridLayout}>
             <SelectTrigger className="bg-black/40 border-white/20 text-white">
-              <SelectValue placeholder="Select layout" />
+              <SelectValue placeholder="Pilih tata letak" />
             </SelectTrigger>
             <SelectContent className="bg-zinc-900 border-zinc-800 text-white">
-              <SelectItem value="4-col">4 Columns</SelectItem>
-              <SelectItem value="3-col">3 Columns</SelectItem>
-              <SelectItem value="2-col">2 Columns</SelectItem>
-              <SelectItem value="1-col">1 Column</SelectItem>
+              <SelectItem value="4-col">4 Kolom</SelectItem>
+              <SelectItem value="3-col">3 Kolom</SelectItem>
+              <SelectItem value="2-col">2 Kolom</SelectItem>
+              <SelectItem value="1-col">1 Kolom</SelectItem>
             </SelectContent>
           </Select>
         </div>
       </section>
 
       <section className="space-y-4">
-        <h3 className="text-xs font-semibold uppercase tracking-wider text-white/70 border-b border-white/10 pb-2">3. Liquid-Glass Effect</h3>
+        <h3 className="text-xs font-semibold uppercase tracking-wider text-white/70 border-b border-white/10 pb-2">3. Efek Kaca-Cair (Liquid-Glass)</h3>
         <div className="space-y-6">
           <div className="space-y-3">
-            <div className="flex justify-between"><Label>Blur Intensity</Label><span className="text-xs text-white/50">{blur}px</span></div>
+            <div className="flex justify-between"><Label>Intensitas Blur</Label><span className="text-xs text-white/50">{blur}px</span></div>
             <Slider value={[blur]} min={0} max={20} step={1} onValueChange={([val]) => setBlur(val)} className="[&_[role=slider]]:bg-white" />
           </div>
           <div className="space-y-3">
-            <div className="flex justify-between"><Label>Transparency</Label><span className="text-xs text-white/50">{(transparency * 100).toFixed(0)}%</span></div>
+            <div className="flex justify-between"><Label>Transparansi</Label><span className="text-xs text-white/50">{(transparency * 100).toFixed(0)}%</span></div>
             <Slider value={[transparency]} min={0} max={0.2} step={0.01} onValueChange={([val]) => setTransparency(val)} className="[&_[role=slider]]:bg-white" />
           </div>
         </div>
       </section>
 
       <section className="space-y-4">
-        <h3 className="text-xs font-semibold uppercase tracking-wider text-white/70 border-b border-white/10 pb-2">4. Main Content</h3>
+        <h3 className="text-xs font-semibold uppercase tracking-wider text-white/70 border-b border-white/10 pb-2">4. Konten Utama</h3>
         <div className="space-y-4">
           <div className="space-y-2">
-            <Label>Profile Picture</Label>
+            <Label>Foto Profil</Label>
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-full overflow-hidden bg-zinc-800 border border-white/20 shrink-0">
                 {mediaUrls.profilePicture ? (
@@ -264,28 +264,28 @@ const EditorPanel = () => {
                 )}
               </div>
               <Button onClick={() => openMediaModal('profilePicture', 'image')} variant="outline" className="bg-transparent border-white/20 text-white/70 hover:text-white h-9 text-xs flex-1">
-                Change Picture
+                Ubah Foto
               </Button>
             </div>
           </div>
           <div className="space-y-2">
-            <Label>Header Text</Label>
+            <Label>Teks Judul (Nama)</Label>
             <Textarea value={header} onChange={(e) => setHeader(e.target.value)} className="bg-white/5 border-white/20 resize-none text-white" />
           </div>
           <div className="space-y-2">
-            <Label>Sub-description</Label>
+            <Label>Deskripsi Tambahan</Label>
             <Textarea value={description} onChange={(e) => setDescription(e.target.value)} className="bg-white/5 border-white/20 resize-none text-white" />
           </div>
         </div>
       </section>
 
       <section id="career" className="space-y-4">
-        <h3 className="text-xs font-semibold uppercase tracking-wider text-white/70 border-b border-white/10 pb-2">5. Career Timeline</h3>
+        <h3 className="text-xs font-semibold uppercase tracking-wider text-white/70 border-b border-white/10 pb-2">5. Linimasa Karier</h3>
         <CareerTimelineEditor />
       </section>
 
       <section id="portfolio" className="space-y-4">
-        <h3 className="text-xs font-semibold uppercase tracking-wider text-white/70 border-b border-white/10 pb-2">6. Portfolio Cards Management</h3>
+        <h3 className="text-xs font-semibold uppercase tracking-wider text-white/70 border-b border-white/10 pb-2">6. Manajemen Kartu Portofolio</h3>
         <div className="space-y-3">
           {[...portfolioCards].sort((a, b) => a.order - b.order).map((card, index) => (
             <div key={card.id} className="flex items-center justify-between p-3 bg-white/5 rounded-xl border border-white/10 group">
@@ -303,7 +303,7 @@ const EditorPanel = () => {
             </div>
           ))}
           <Button onClick={handleAddCard} variant="outline" className="w-full border-dashed border-white/20 bg-transparent text-white/70 hover:text-white hover:bg-white/5 h-10 text-xs">
-            <Plus size={14} className="mr-2" /> Add New Card
+            <Plus size={14} className="mr-2" /> Tambah Kartu Baru
           </Button>
         </div>
       </section>
@@ -325,14 +325,14 @@ const EditorPanel = () => {
           {isSaving ? (
             <span className="flex items-center gap-2">
               <span className="w-4 h-4 border-2 border-black/30 border-t-black rounded-full animate-spin" />
-              SAVING...
+              MENYIMPAN...
             </span>
           ) : isSaved ? (
             <span className="flex items-center gap-2">
-              <Check size={16} /> SAVED!
+              <Check size={16} /> ✓ TERSIMPAN!
             </span>
           ) : (
-            'SAVE CHANGES'
+            'SIMPAN PERUBAHAN'
           )}
         </Button>
       </div>

@@ -99,14 +99,14 @@ const MediaUploadModal = ({ isOpen, onClose, onSave, mediaType }) => {
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-md bg-zinc-950 text-zinc-100 border-zinc-800">
         <DialogHeader>
-          <DialogTitle>Update {mediaType === 'video' ? 'Video' : 'Image'}</DialogTitle>
+          <DialogTitle>Perbarui {mediaType === 'video' ? 'Video' : 'Gambar'}</DialogTitle>
         </DialogHeader>
         
         <form onSubmit={handleSubmit(onSubmit)}>
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full mt-4">
             <TabsList className="grid w-full grid-cols-2 bg-zinc-900">
-              <TabsTrigger value="upload" className="data-[state=active]:bg-zinc-800 data-[state=active]:text-zinc-100">Upload File</TabsTrigger>
-              <TabsTrigger value="url" className="data-[state=active]:bg-zinc-800 data-[state=active]:text-zinc-100">Paste URL</TabsTrigger>
+              <TabsTrigger value="upload" className="data-[state=active]:bg-zinc-800 data-[state=active]:text-zinc-100">Unggah File</TabsTrigger>
+              <TabsTrigger value="url" className="data-[state=active]:bg-zinc-800 data-[state=active]:text-zinc-100">Tempel URL</TabsTrigger>
             </TabsList>
             
             <TabsContent value="upload" className="space-y-4 py-4">
@@ -118,7 +118,7 @@ const MediaUploadModal = ({ isOpen, onClose, onSave, mediaType }) => {
                 onClick={() => fileInputRef.current?.click()}
               >
                 <UploadCloud className="mx-auto h-8 w-8 text-zinc-400 mb-3" />
-                <p className="text-sm text-zinc-300">Drag and drop your {mediaType} here, or click to browse</p>
+                <p className="text-sm text-zinc-300">Seret dan lepas {mediaType === 'video' ? 'video' : 'gambar'} Anda di sini, atau klik untuk memilih</p>
                 <input 
                   ref={fileInputRef}
                   type="file" 
@@ -131,7 +131,7 @@ const MediaUploadModal = ({ isOpen, onClose, onSave, mediaType }) => {
             
             <TabsContent value="url" className="space-y-4 py-4">
               <div className="grid w-full items-center gap-1.5">
-                <Label htmlFor="mediaUrl">Media URL</Label>
+                <Label htmlFor="mediaUrl">URL Media</Label>
                 <Input 
                   id="mediaUrl" 
                   type="url" 
@@ -142,10 +142,10 @@ const MediaUploadModal = ({ isOpen, onClose, onSave, mediaType }) => {
               </div>
             </TabsContent>
           </Tabs>
-
+ 
           <div className="mt-4 border border-zinc-800 rounded-lg overflow-hidden min-h-[150px] bg-zinc-900 flex items-center justify-center relative">
             {isLoading ? (
-              <span className="text-zinc-500 text-sm">Loading preview...</span>
+              <span className="text-zinc-500 text-sm">Memuat pratinjau...</span>
             ) : previewUrl ? (
               (() => {
                 const isGif = previewUrl.toLowerCase().endsWith('.gif') || previewUrl.toLowerCase().includes('.gif');
@@ -159,16 +159,16 @@ const MediaUploadModal = ({ isOpen, onClose, onSave, mediaType }) => {
                 );
               })()
             ) : (
-              <span className="text-zinc-600 text-sm">No preview available</span>
+              <span className="text-zinc-600 text-sm">Pratinjau tidak tersedia</span>
             )}
           </div>
-
+ 
           <DialogFooter className="mt-6 sm:justify-end gap-2">
             <Button type="button" variant="ghost" onClick={onClose} className="text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800">
-              Cancel
+              Batal
             </Button>
             <Button type="submit" disabled={!previewUrl} className="bg-white text-black hover:bg-zinc-200">
-              Save Changes
+              Simpan Perubahan
             </Button>
           </DialogFooter>
         </form>
