@@ -33,8 +33,18 @@ const getColSpanClass = (width) => {
   }
 };
 
+const getDesktopGridCols = (layout) => {
+  switch (layout) {
+    case '4-col': return 'lg:grid-cols-4';
+    case '3-col': return 'lg:grid-cols-3';
+    case '2-col': return 'lg:grid-cols-2';
+    case '1-col': return 'lg:grid-cols-1';
+    default: return 'lg:grid-cols-3';
+  }
+};
+
 const PortfolioCardManager = ({ children }) => {
-  const { portfolioCards, reorderCard, deleteCard, updateCard, isPublic } = useEditor();
+  const { portfolioCards, reorderCard, deleteCard, updateCard, isPublic, careerGridLayout } = useEditor();
   const [editingCard, setEditingCard] = useState(null);
   const [isFormOpen, setIsFormOpen] = useState(false);
   
@@ -73,7 +83,10 @@ const PortfolioCardManager = ({ children }) => {
 
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 auto-rows-[minmax(150px,auto)]" onDragOver={(e) => e.preventDefault()}>
+      <div 
+        className={`grid grid-cols-1 md:grid-cols-2 ${getDesktopGridCols(careerGridLayout)} gap-4 md:gap-6 p-4 md:p-8 auto-rows-[minmax(150px,auto)]`} 
+        onDragOver={(e) => e.preventDefault()}
+      >
         {/* Fixed Background Card (Column 1) */}
         <div className="col-span-1 md:col-span-2 lg:col-span-1 row-span-2 h-full">
           {children}
