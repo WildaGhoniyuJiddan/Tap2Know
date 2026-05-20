@@ -6,8 +6,8 @@ const PortfolioCardContact = ({ card }) => {
   const { bodyFontFamily, cardColor, textColor, blur, transparency } = useEditor();
   const { email, phone, socialLinks } = card.content;
 
-  const alphaVal = (transparency ?? 0.1) <= 1 ? (transparency ?? 0.1) * 100 : transparency;
-  const alphaHex = Math.round(alphaVal * 2.55).toString(16).padStart(2, '0');
+  const transVal = (transparency ?? 0.1) <= 1 ? (transparency ?? 0.1) * 100 : transparency;
+  const opacityHex = Math.round((100 - transVal) * 2.55).toString(16).padStart(2, '0');
 
   const getIcon = (platform) => {
     switch(platform?.toLowerCase()) {
@@ -22,7 +22,7 @@ const PortfolioCardContact = ({ card }) => {
     <div 
       className="w-full h-full relative overflow-hidden rounded-2xl p-6 md:p-8 flex flex-col justify-between noise-overlay" 
       style={{ 
-        backgroundColor: `${cardColor || '#111111'}${alphaHex}`, 
+        backgroundColor: `${cardColor || '#111111'}${opacityHex}`, 
         backdropFilter: `blur(${blur ?? 4}px)`,
         WebkitBackdropFilter: `blur(${blur ?? 4}px)`,
         fontFamily: bodyFontFamily,

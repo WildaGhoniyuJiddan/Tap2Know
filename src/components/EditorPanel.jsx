@@ -245,7 +245,7 @@ const EditorPanel = () => {
           </div>
           <div className="space-y-3">
             <div className="flex justify-between"><Label>Transparansi</Label><span className="text-xs text-white/50">{(transparency * 100).toFixed(0)}%</span></div>
-            <Slider value={[transparency]} min={0} max={0.2} step={0.01} onValueChange={([val]) => setTransparency(val)} className="[&_[role=slider]]:bg-white" />
+            <Slider value={[transparency]} min={0} max={0.95} step={0.01} onValueChange={([val]) => setTransparency(val)} className="[&_[role=slider]]:bg-white" />
           </div>
         </div>
       </section>

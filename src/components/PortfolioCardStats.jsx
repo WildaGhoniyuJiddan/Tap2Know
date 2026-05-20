@@ -20,14 +20,14 @@ const PortfolioCardStats = ({ card }) => {
   const { number, label, icon } = card.content;
   const IconComponent = icon && iconMap[icon] ? iconMap[icon] : null;
 
-  const alphaVal = (transparency ?? 0.1) <= 1 ? (transparency ?? 0.1) * 100 : transparency;
-  const alphaHex = Math.round(alphaVal * 2.55).toString(16).padStart(2, '0');
+  const transVal = (transparency ?? 0.1) <= 1 ? (transparency ?? 0.1) * 100 : transparency;
+  const opacityHex = Math.round((100 - transVal) * 2.55).toString(16).padStart(2, '0');
 
   return (
     <div 
       className="w-full h-full relative overflow-hidden rounded-2xl p-6 md:p-8 flex flex-col justify-center items-center text-center noise-overlay" 
       style={{ 
-        backgroundColor: `${cardColor || '#111111'}${alphaHex}`, 
+        backgroundColor: `${cardColor || '#111111'}${opacityHex}`, 
         backdropFilter: `blur(${blur ?? 4}px)`,
         WebkitBackdropFilter: `blur(${blur ?? 4}px)`,
         fontFamily: bodyFontFamily,

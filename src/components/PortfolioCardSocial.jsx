@@ -57,8 +57,8 @@ const PortfolioCardSocial = ({ card }) => {
   
   const profilePic = mediaUrls?.profilePicture;
 
-  const alphaVal = (transparency ?? 0.1) <= 1 ? (transparency ?? 0.1) * 100 : transparency;
-  const alphaHex = Math.round(alphaVal * 2.55).toString(16).padStart(2, '0');
+  const transVal = (transparency ?? 0.1) <= 1 ? (transparency ?? 0.1) * 100 : transparency;
+  const opacityHex = Math.round((100 - transVal) * 2.55).toString(16).padStart(2, '0');
 
   return (
     <a 
@@ -67,7 +67,7 @@ const PortfolioCardSocial = ({ card }) => {
       rel="noreferrer"
       className="block w-full h-full relative overflow-hidden rounded-2xl group transition-all duration-300 hover:scale-[1.02] active:scale-95" 
       style={{ 
-        backgroundColor: `${cardColor || style.bg || '#111111'}${alphaHex}`, 
+        backgroundColor: `${style.bg || '#111111'}${opacityHex}`, 
         backdropFilter: `blur(${blur ?? 4}px)`,
         WebkitBackdropFilter: `blur(${blur ?? 4}px)`,
         fontFamily: bodyFontFamily,
