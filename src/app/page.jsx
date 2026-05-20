@@ -119,7 +119,7 @@ const HomePage = () => {
         overflow: 'hidden',
       }}>
         <div style={{ position: 'relative', width: '100%', height: '100vh', overflow: 'hidden' }}>
-          
+
           <div style={{
             position: 'absolute',
             inset: 0,

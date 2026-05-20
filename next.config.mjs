@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'standalone',
   // Mengizinkan koneksi HMR dari IP lokal wifi agar bisa testing live di HP
   allowedDevOrigins: ['192.168.18.22', 'localhost:3000'],
 

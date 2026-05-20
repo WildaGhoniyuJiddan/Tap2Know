@@ -1,10 +1,13 @@
 "use client";
+
+// BARIS DYNAMIC SUDAH DIHAPUS BIAR TIDAK ERROR
 import React, { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { auth, signInWithEmailAndPassword, toSyntheticEmail } from '@/firebase/client';
 import { ArrowRight, Loader2, ShieldCheck, AlertTriangle } from 'lucide-react';
 import { toast } from 'sonner';
 
+// Ubah fungsi ini menjadi fungsi biasa (bukan default export lagi)
 function ActivateForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -16,6 +19,8 @@ function ActivateForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
+  // ... (TETAPKAN semua sisa kodingan, fungsi handler, useEffect, 
+  // dan return JSX UI lamamu di dalam sini sampai tanda tutup kurung kurawal '}')
   const handleActivate = async (e) => {
     e.preventDefault();
     setError('');
@@ -91,7 +96,7 @@ function ActivateForm() {
 
   return (
     <div className="min-h-screen bg-black text-white flex flex-col justify-center items-center p-4 font-['Inter'] relative overflow-hidden">
-      
+
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none opacity-20" style={{
         backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E")`,
@@ -110,7 +115,7 @@ function ActivateForm() {
         </div>
 
         <form onSubmit={handleActivate} className="space-y-5 bg-zinc-950/80 backdrop-blur-xl p-8 rounded-2xl border border-zinc-800 shadow-[8px_8px_0px_#111]">
-          
+
           {/* Code Display */}
           <div className="flex items-center justify-between p-3 bg-zinc-900 rounded-lg border border-zinc-800">
             <span className="text-xs text-zinc-500 uppercase tracking-wider">Activation Code</span>
@@ -189,10 +194,18 @@ function ActivateForm() {
 export default function ActivatePage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen bg-black flex items-center justify-center text-white">
-        <div className="flex items-center gap-3 font-mono text-sm">
-          <div className="w-4 h-4 border-2 border-white/20 border-t-white rounded-full animate-spin" />
-          LOADING...
+      <div className="min-h-screen bg-black text-white flex flex-col justify-center items-center p-6 font-['Inter'] relative overflow-hidden">
+        {/* Background elements */}
+        <div className="absolute inset-0 pointer-events-none opacity-20" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E")`,
+        }} />
+        <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] bg-[#ccff00] blur-[150px] opacity-10 rounded-full" />
+        <div className="absolute -bottom-[20%] -right-[10%] w-[50%] h-[50%] bg-[#6EB5FF] blur-[150px] opacity-10 rounded-full" />
+
+        <div className="max-w-md w-full text-center p-8 border-2 border-zinc-800 bg-zinc-950 rounded-xl shadow-[8px_8px_0px_#111] relative z-10">
+          <div className="w-16 h-16 border-4 border-[#ccff00]/20 border-t-[#ccff00] rounded-full animate-spin mx-auto mb-6" />
+          <h1 className="font-['Anton'] text-3xl tracking-tight uppercase mb-2 text-zinc-100">INITIALIZING PROFILE...</h1>
+          <p className="text-zinc-400 text-sm">Please wait while we connect to your card.</p>
         </div>
       </div>
     }>
