@@ -16,12 +16,24 @@ const iconMap = {
 };
 
 const PortfolioCardStats = ({ card }) => {
-  const { bodyFontFamily, displayFontFamily, textColor } = useEditor();
+  const { bodyFontFamily, displayFontFamily, textColor, cardColor, blur, transparency } = useEditor();
   const { number, label, icon } = card.content;
   const IconComponent = icon && iconMap[icon] ? iconMap[icon] : null;
 
+  const alphaVal = (transparency ?? 0.1) <= 1 ? (transparency ?? 0.1) * 100 : transparency;
+  const alphaHex = Math.round(alphaVal * 2.55).toString(16).padStart(2, '0');
+
   return (
-    <div className="w-full h-full relative overflow-hidden rounded-2xl bg-black p-6 md:p-8 flex flex-col justify-center items-center text-center" style={{ fontFamily: bodyFontFamily }}>
+    <div 
+      className="w-full h-full relative overflow-hidden rounded-2xl p-6 md:p-8 flex flex-col justify-center items-center text-center noise-overlay" 
+      style={{ 
+        backgroundColor: `${cardColor || '#111111'}${alphaHex}`, 
+        backdropFilter: `blur(${blur ?? 4}px)`,
+        WebkitBackdropFilter: `blur(${blur ?? 4}px)`,
+        fontFamily: bodyFontFamily,
+        color: textColor
+      }}
+    >
       <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
       
       <div className="relative z-10">

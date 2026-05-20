@@ -3,8 +3,11 @@ import { useEditor } from '../context/EditorContext.jsx';
 import { ArrowUpRight, Mail, Phone, Github, Twitter, Linkedin } from 'lucide-react';
 
 const PortfolioCardContact = ({ card }) => {
-  const { bodyFontFamily, cardColor, textColor } = useEditor();
+  const { bodyFontFamily, cardColor, textColor, blur, transparency } = useEditor();
   const { email, phone, socialLinks } = card.content;
+
+  const alphaVal = (transparency ?? 0.1) <= 1 ? (transparency ?? 0.1) * 100 : transparency;
+  const alphaHex = Math.round(alphaVal * 2.55).toString(16).padStart(2, '0');
 
   const getIcon = (platform) => {
     switch(platform?.toLowerCase()) {
@@ -16,7 +19,16 @@ const PortfolioCardContact = ({ card }) => {
   };
 
   return (
-    <div className="w-full h-full relative overflow-hidden rounded-2xl p-6 md:p-8 flex flex-col justify-between noise-overlay" style={{ backgroundColor: cardColor, fontFamily: bodyFontFamily }}>
+    <div 
+      className="w-full h-full relative overflow-hidden rounded-2xl p-6 md:p-8 flex flex-col justify-between noise-overlay" 
+      style={{ 
+        backgroundColor: `${cardColor || '#111111'}${alphaHex}`, 
+        backdropFilter: `blur(${blur ?? 4}px)`,
+        WebkitBackdropFilter: `blur(${blur ?? 4}px)`,
+        fontFamily: bodyFontFamily,
+        color: textColor
+      }}
+    >
       <div className="relative z-10 w-full min-w-0">
         <div className="uppercase tracking-[0.22em] text-[11px] font-medium opacity-70 mb-6" style={{ color: textColor }}>
           REACH ME

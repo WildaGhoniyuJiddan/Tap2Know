@@ -2,13 +2,25 @@ import React from 'react';
 import { useEditor } from '../context/EditorContext.jsx';
 
 const PortfolioCardImage = ({ card }) => {
-  const { bodyFontFamily, textColor } = useEditor();
+  const { bodyFontFamily, textColor, cardColor, blur, transparency } = useEditor();
   const { mediaUrl, overlayText } = card.content;
 
   const isVideo = mediaUrl?.match(/\.(mp4|webm|ogg)$/i);
 
+  const alphaVal = (transparency ?? 0.1) <= 1 ? (transparency ?? 0.1) * 100 : transparency;
+  const alphaHex = Math.round(alphaVal * 2.55).toString(16).padStart(2, '0');
+
   return (
-    <div className="w-full h-full relative overflow-hidden rounded-2xl bg-black group" style={{ fontFamily: bodyFontFamily }}>
+    <div 
+      className="w-full h-full relative overflow-hidden rounded-2xl group noise-overlay" 
+      style={{ 
+        backgroundColor: `${cardColor || '#111111'}${alphaHex}`, 
+        backdropFilter: `blur(${blur ?? 4}px)`,
+        WebkitBackdropFilter: `blur(${blur ?? 4}px)`,
+        fontFamily: bodyFontFamily,
+        color: textColor
+      }}
+    >
       {mediaUrl && (
         isVideo ? (
           <video src={mediaUrl} autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover opacity-70 transition-transform duration-700 group-hover:scale-105" />

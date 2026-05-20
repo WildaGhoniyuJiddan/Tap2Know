@@ -49,13 +49,16 @@ const getPlatformStyle = (url) => {
 };
 
 const PortfolioCardSocial = ({ card }) => {
-  const { bodyFontFamily, mediaUrls } = useEditor();
+  const { bodyFontFamily, mediaUrls, cardColor, textColor, blur, transparency } = useEditor();
   const { url, subLabel, customLabel } = card.content;
   
   const handle = customLabel || extractHandle(url);
   const style = getPlatformStyle(url);
   
   const profilePic = mediaUrls?.profilePicture;
+
+  const alphaVal = (transparency ?? 0.1) <= 1 ? (transparency ?? 0.1) * 100 : transparency;
+  const alphaHex = Math.round(alphaVal * 2.55).toString(16).padStart(2, '0');
 
   return (
     <a 
@@ -64,10 +67,13 @@ const PortfolioCardSocial = ({ card }) => {
       rel="noreferrer"
       className="block w-full h-full relative overflow-hidden rounded-2xl group transition-all duration-300 hover:scale-[1.02] active:scale-95" 
       style={{ 
-        background: style.bg, 
+        backgroundColor: `${cardColor || style.bg || '#111111'}${alphaHex}`, 
+        backdropFilter: `blur(${blur ?? 4}px)`,
+        WebkitBackdropFilter: `blur(${blur ?? 4}px)`,
         fontFamily: bodyFontFamily,
         border: style.border || 'none',
-        boxShadow: style.shadow || 'none'
+        boxShadow: style.shadow || 'none',
+        color: textColor
       }}
     >
       <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity" />
